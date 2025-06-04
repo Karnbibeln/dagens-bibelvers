@@ -1,6 +1,7 @@
 === Dagens Bibelvers ===
 Contributors:      The WordPress Contributors
 Tags:              block
+Requires at least: 6.3.5
 Tested up to:      6.7
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later

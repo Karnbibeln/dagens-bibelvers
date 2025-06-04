@@ -9,7 +9,7 @@ return array(
 		'title' => 'Dagens Bibelvers',
 		'category' => 'widgets',
 		'icon' => 'smiley',
-		'description' => 'Example block scaffolded with Create Block tool.',
+		'description' => 'Dagens bibelvers från Svenska Kärnbibeln.',
 		'example' => array(
 			
 		),
