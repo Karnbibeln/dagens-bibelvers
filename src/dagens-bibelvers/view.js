@@ -20,6 +20,19 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
+jQuery.ajax({
+    url: dagensBibelversAjax.ajaxUrl,
+    method: 'POST',
+    data: {
+        action: 'dagens_bibelvers_action',
+        _ajax_nonce: dagensBibelversAjax.nonce
+    },
+    success: function(response) {
+        console.log('Success: ' + response);
+    }
+})
+
+
 /* eslint-disable no-console */
 console.log( 'Hello World! (from create-block-dagens-bibelvers block)' );
 /* eslint-enable no-console */
