@@ -4,15 +4,40 @@
  */
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php
+    <?php
     $url = 'https://www.karnbibeln.se/app/v1/dailyverse_json/' . date('Y') . '.json';
     $json = file_get_contents($url);
 
     $data = json_decode($json, true);
-    $date = '20' . date('y-m-d');
+    $date = date('Y-m-d');
+    if($attributes["width"]){
+        $width = $attributes["width"];
+    } else {
+        $width = "100%";
+    }
+    
+    if($attributes['imgLink']) {
+        $reference = explode('_',$data[$date]['reference']);
+        
+        if(str_contains($reference[3], '-')){
+            $verses = explode('-', $reference[3]);
 
-    $reference = explode('_',$data[$date]['reference']);
-    $link = 'https://www.karnbibeln.se/las/?b=' . $reference[1] . '&mark=1#' . $reference[2] . '_' . $reference[3];
+
+            $link = 'https://www.karnbibeln.se/las/?b=' . $reference[1] . '&mark=1&toverse=' . $verses[1] . '#' . $reference[2] . '_' . $verses[0];
+        }
+        else {
+            $link = 'https://www.karnbibeln.se/las/?b=' . $reference[1] . '&mark=1#' . $reference[2] . '_' . $reference[3];
+        }
+        
+        
+        ?>
+        <p><a tabindex="-1" class="dagens-bibelvers-link" style="display: block; max-width:<?php echo $width; ?>; height: auto;" href="<?php echo $link; ?>" target="_blank"><img class="dagens-bibelvers-image" style="max-width: 100%; height: auto;" src="<?php echo $data[$date]['image']; ?>"></a></p>
+        <?php
+    }
+    else {
+        ?>
+        <p><img class="dagens-bibelvers-image" style="max-width: <?php echo $width; ?>; height: auto;" src="<?php echo $data[$date]['image']; ?>"></p>
+        <?php
+    }
     ?>
-    <a href="<?php echo $link; ?>" target="_blank"><img src="<?php echo $data[$date]['image']; ?>"></a>
 </p>

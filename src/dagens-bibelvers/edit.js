@@ -11,8 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { PanelBody, TextControl, ToggleControl} from '@wordpress/components';
 
+import image1 from "./dagensbibelord_default.jpg";
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -21,14 +23,41 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+
+export default function Edit( {attributes, setAttributes}) {
 	const year = new Date().getFullYear();
 	const month = (parseInt(new Date().getMonth())+1).toString().padStart(2, '0');
 	const day = new Date().getDate().toString().padStart(2, '0');
 	const fulldate = `${year}-${month}-${day}`;
+	
+	const { imgLink, width } = attributes;
+
+	var editStyle = {
+		maxWidth: width,
+		height: "auto"
+	}
+
 	return (
-		<p { ...useBlockProps() }>
-			{ fulldate }
-		</p>
+		<>
+			<InspectorControls>
+				<PanelBody title={__( 'Inställningar', 'dagens-bibelvers' ) }>
+					<ToggleControl
+						label={ __('Länk', 'dagens-bibelvers') }
+						checked={ !! imgLink}
+						onChange={ () =>
+							setAttributes( { imgLink: ! imgLink })
+						}
+					/>
+					<TextControl
+						label={ __('Bredd')}
+						value={ width || "100%" }
+						onChange={(value)=> setAttributes({width: value})}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<p { ...useBlockProps() }>
+				<img className="dagens-bibelvers-image" style={editStyle} src={image1}></img>
+			</p>
+		</>
 	);
 }

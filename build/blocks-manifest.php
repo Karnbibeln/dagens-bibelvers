@@ -14,8 +14,20 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => true
 		),
+		'attributes' => array(
+			'imgLink' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'width' => array(
+				'type' => 'string',
+				'default' => '100%'
+			)
+		),
+		'style' => 'file:./style.scss',
 		'textdomain' => 'dagens-bibelvers',
 		'editorScript' => 'file:./index.js',
 		'render' => 'file:./render.php'

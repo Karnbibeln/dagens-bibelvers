@@ -9,8 +9,20 @@
   "description": "Dagens bibelvers från Svenska Kärnbibeln.",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "align": true
   },
+  "attributes": {
+    "imgLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "width": {
+      "type": "string",
+      "default": "100%"
+    }
+  },
+  "style": "file:./style.scss",
   "textdomain": "dagens-bibelvers",
   "editorScript": "file:./index.js",
   "render": "file:./render.php"
