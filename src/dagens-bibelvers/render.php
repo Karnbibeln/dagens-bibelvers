@@ -3,13 +3,13 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
+<p <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
     <?php
-    $url = 'https://www.karnbibeln.se/app/v1/dailyverse_json/' . date('Y') . '.json';
+    $url = 'https://www.karnbibeln.se/app/v1/dailyverse_json/' . gmdate('Y') . '.json';
     $json = file_get_contents($url);
 
     $data = json_decode($json, true);
-    $date = date('Y-m-d');
+    $date = gmdate('Y-m-d');
     if($attributes["width"]){
         $width = $attributes["width"];
     } else {
@@ -31,12 +31,12 @@
         
         
         ?>
-        <p><a tabindex="-1" class="dagens-bibelvers-link" style="display: block; max-width:<?php echo $width; ?>; height: auto;" href="<?php echo $link; ?>" target="_blank"><img class="dagens-bibelvers-image" style="max-width: 100%; height: auto;" src="<?php echo $data[$date]['image']; ?>"></a></p>
+        <p><a tabindex="-1" class="dagens-bibelvers-link" style="display: block; max-width:<?php echo esc_html($width); ?>; height: auto;" href="<?php echo esc_html($link); ?>" target="_blank"><img class="dagens-bibelvers-image" style="max-width: 100%; height: auto;" src="<?php echo esc_html($data[$date]['image']); ?>"></a></p>
         <?php
     }
     else {
         ?>
-        <p><img class="dagens-bibelvers-image" style="max-width: <?php echo $width; ?>; height: auto;" src="<?php echo $data[$date]['image']; ?>"></p>
+        <p><img class="dagens-bibelvers-image" style="max-width: <?php echo esc_html($width); ?>; height: auto;" src="<?php echo esc_html($data[$date]['image']); ?>"></p>
         <?php
     }
     ?>
