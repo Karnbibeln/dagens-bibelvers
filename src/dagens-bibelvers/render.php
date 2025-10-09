@@ -6,7 +6,7 @@
 <p <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
     <?php
     $url = 'https://www.karnbibeln.se/app/v1/dailyverse_json/' . gmdate('Y') . '.json';
-    $json = file_get_contents($url);
+    $json = wp_remote_get($url)["body"];
 
     $data = json_decode($json, true);
     $date = gmdate('Y-m-d');
