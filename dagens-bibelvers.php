@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name:       Dagens Bibelvers
- * Description:       Example block scaffolded with Create Block tool.
- * Version:           0.1.0
+ * Description:       A WordPress plugin to show the verse of the day from the Swedish Core Bible.
+ * Version:           1.0.2
  * Requires at least: 6.8
  * Requires PHP:      7.4
- * Author:            The WordPress Contributors
+ * Author:            Kärnbibeln
+ * Author URI: 		  https://www.karnbibeln.se/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       dagens-bibelvers
