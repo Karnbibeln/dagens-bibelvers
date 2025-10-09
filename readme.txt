@@ -34,11 +34,13 @@ This plugin displays the verse of the day from the Swedish Core Bible. The websi
 
 = How to uninstall the plugin? =
 
- 
-
 Simply deactivate and delete the plugin.
 
- 
+
+= Where can I contribute to the plugin? =
+
+All development for this plugin is handled via [GitHub](https://github.com/Karnbibeln/dagens-bibelvers) any issues or pull requests should be posted there.
+
 
 == Screenshots ==
 
