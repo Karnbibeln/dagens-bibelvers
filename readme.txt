@@ -18,6 +18,10 @@ A WordPress plugin to show the verse of the day from the Swedish Core Bible.
 This plugin displays the verse of the day from the Swedish Core Bible. The website is karnbibeln.se and the image is linked from this page. We are using the plugin on the website www.dagensbibelord.se so here you can see how it would look.
 
  
+== External services ==
+
+This plugin connects to an API to obtain bibleverse and an image, it's needed to show the bibleverse in the included widget.
+
 
 == Installation ==
 
