@@ -1,5 +1,5 @@
 === Dagens Bibelvers ===
-Contributors:      The WordPress Contributors
+Contributors:      karnbibeln
 Tags:              block
 Requires at least: 6.8
 Tested up to:      6.8
