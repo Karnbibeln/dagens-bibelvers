@@ -20,7 +20,13 @@ This plugin displays the verse of the day from the Swedish Core Bible. The websi
  
 == External services ==
 
-This plugin connects to an API to obtain bibleverse and an image, it's needed to show the bibleverse in the included widget.
+This plugin connects to an API to obtain bibleverse and an image, it's needed to show the bibleverse in the included widget. 
+
+Once a day the app gets the verse and URL to the illustration for the daily verse from www.karnbibeln.se/api. 
+The image is a JPG image located on  https://www.karnbibeln.se/wp-content/uploads/imageverse/
+The link goes to the Bible verse in the bible text: https://www.karnbibeln.se/las
+No user datat is sent or collected. 
+This service is provided by the [Svenska Kärnbibeln](https://www.karnbibeln.s) via [Dagens bibelord](https://dagensbibelord.se/): [Terms of use](https://dagensbibelord.se/anvandning/) [privacy policy](https://dagensbibelord.se/privacy-policy/) 
 
 
 == Installation ==
