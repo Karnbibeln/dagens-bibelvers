@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Dagens Bibelvers
  * Description:       A WordPress plugin to show the verse of the day from the Swedish Core Bible.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Requires at least: 6.8
  * Requires PHP:      7.4
  * Author:            Kärnbibeln
