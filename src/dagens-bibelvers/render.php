@@ -8,8 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
     <?php
     $url = 'https://www.karnbibeln.se/app/v1/dailyverse_json/' . gmdate('Y') . '.json';
-    $json = wp_remote_get($url)["body"];
-
+    if ( false === ( $json = get_transient( 'karnbibeln_dailyverse_json' ) ) ) {
+        $json = wp_remote_get($url)["body"];
+        set_transient('karnbibeln_dailyverse_json', $json, 1 * HOUR_IN_SECONDS);
+    }
     $data = json_decode($json, true);
     $date = gmdate('Y-m-d');
     if($attributes["width"]){
